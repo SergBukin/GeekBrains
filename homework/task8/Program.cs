@@ -7,7 +7,7 @@ System.Console.WriteLine("Введите числo N");
 int N = int.Parse(Console.ReadLine());
 System.Console.WriteLine("Четные числа от 1 до " + N);
 if(N > 0) {
-for (int i = 1; i < N; i++){
+for (int i = 1; i <= N; i++){
     if(i % 2 == 0)
     System.Console.WriteLine(i);
 }
