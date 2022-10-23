@@ -6,7 +6,7 @@
 // {
 //     int result = x;
 //     if(y> result) result = y;
-//      if(z> result) result = z;
+//     if(z> result) result = z;
 //     return result;
 // }
 
