@@ -8,3 +8,4 @@
 
 // * CamelCase – всё так же, но первая буква первого слова — строчная: borderColor, accessTime,
 // templateName
+
