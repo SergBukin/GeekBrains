@@ -1,0 +1,83 @@
+Linux: изменить порядок загрузки в GRUB
+
+Настройки порядка загрузки хранятся в файле /boot/grub/grub.cfg, в первых же строках которого большими буквами сказано:
+
+Перед изменениями – делаем резервную копию:
+1	# cp /etc/default/grub /etc/default/grub.bkp
+
+Выглядит файл по-умолчанию так:
+
+# cat /etc/default/grub | grep -v ‘#’
+2	GRUB_HIDDEN_TIMEOUT_QUIET=true
+4	GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+5	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+Строка GRUB_DEFAULT может иметь значение либо числовое (0, 1 и т.д.), либо буквенное – saved.
+
+GRUB_DEFAULT=0 будет загружать первую систему, описанную в файле /boot/grub/grub.cfg, в блоках menuentry.
+
+Тут стоит обратить внимание на строку submenu в файле /boot/grub/grub.cfg – нам нужны номера, не входящие в неё, поэтому строку  submenu мы учитываем как “индекс 1“.
+
+Проще всего во время загрузки GRUB просто посчитать порядковый номер системы, либо – просмотреть файл /boot/grub/grub.cfg в текстовом редакторе, в котором будет чётко видно разделение на “главные” пункты меню, и его “подменю”.
+
+Давайте посмотрим так:
+
+Индекс “ноль” в меню:
+1	menuentry 'Ubuntu' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-d2a29853-1358-4ba6-949a-768bd15af746' {
+
+Индекс 1
+1	submenu 'Дополнительные параметры для Ubuntu'
+
+Второй:
+1	menuentry 'Memory test (memtest86+)'
+
+Третий:
+1	menuentry 'Memory test (memtest86+, serial console 115200)'
+
+И четвёртый:
+1	menuentry 'Windows 7 (loader)
+
+Тут под номером 0 будет считаться строка menuentry 'Ubuntu, with Linux 3.13.0-24-generic (первая в подменю), а Windows 7 (loader) – по счёту будет 4.
+
+Вариант номер за – изменить строку GRUB_DEFAULT= вручную, прямо в файле, и указать номер системы для загрузки.
+
+Либо, вместо номера, указать полное имя:
+1	GRUB_DEFAULT="'Windows 7 (loader) (на /dev/sda1)"
+
+Другой вариант – изменить GRUB_DEFAULT на GRUB_DEFAULT=saved, после чего выполнить:
+
+Этим мы указываем две вещи:
+
+а) GRUB_DEFAULT=saved – GRUB будет загружать ту систему, которая была загружена последней;
+
+б) такой системой мы устанавливаем запись №4, т.е. – Windows 7 (loader).
+
+При чём второй пункт выполнять необязательно – достаточно будет 1 раз выбрать систему во время загрузки – и она будет сохранена как “система по-умолчанию”.
+
+Так же, вместо указания “индекса” системы – можно указать полное её полное “имя”:
+1	# grub-set-default "'Windows 7 (loader) (на /dev/sda1)"
+
+После чего выполнить:
+02	Generating grub configuration file ...
+03	Найден образ linux: /boot/vmlinuz-3.13.0-24-generic
+04	Найден образ initrd: /boot/initrd.img-3.13.0-24-generic
+05	Найден образ linux: /boot/vmlinuz-3.5.0-46-generic
+06	Найден образ initrd: /boot/initrd.img-3.5.0-46-generic
+07	Найден образ linux: /boot/vmlinuz-3.5.0-37-generic
+08	Найден образ initrd: /boot/initrd.img-3.5.0-37-generic
+09	Найден образ linux: /boot/vmlinuz-3.5.0-26-generic
+10	Найден образ initrd: /boot/initrd.img-3.5.0-26-generic
+11	Найден образ linux: /boot/vmlinuz-3.5.0-17-generic
+12	Найден образ initrd: /boot/initrd.img-3.5.0-17-generic
+13	Found memtest86+ image: /boot/memtest86+.elf
+14	Found memtest86+ image: /boot/memtest86+.bin
+15	Найден Windows 7 (loader) на /dev/sda1
+
+Ссылки по теме
+
+http://ubuntologia.ru (+ описание различных опций, русс)
+
+https://ru.wikibooks.org (вообще всё про GRUB2, русс)
+
+https://help.ubuntu.com (настройка подменю, eng)
+
