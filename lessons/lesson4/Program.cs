@@ -124,18 +124,18 @@
 
 //  Задача Факториал !
 
-// double Factorial (double n)
-// {
-//     // 1! = 1
-//     // 0! = 1
-//     if (n == 1) return 1;
-//     else return n * Factorial(n - 1);
-// }
+double Factorial (double n)
+{
+    // 1! = 1
+    // 0! = 1
+    if (n == 1) return 1;
+    else return n * Factorial(n - 1);
+}
 
-// for (int i = 1; i < 40; i++)
-// {
-//     System.Console.WriteLine($"{i}! = {Factorial(i)}");
-// }
+for (int i = 1; i < 40; i++)
+{
+    System.Console.WriteLine($"{i}! = {Factorial(i)}");
+}
 
 // ***************************************************
 
@@ -146,15 +146,16 @@
 // f(n) = f(n-1) + F(n-2)
 // *****************************
 
-// int Fibonacci(double n)
-// {
-//     if(n ==1 || n ==2) return 1;
-//     else return Fibonacci(n-1) + Fibonacci(n-2);
-// }
+int Fibonacci(double n)
+{
+    
+    if(n ==1 || n ==2) return 1;
+    else return Fibonacci(n-1) + Fibonacci(n-2);
+}
 
-// for (int i = 1; i < 40; i++)
-// {
-//     System.Console.WriteLine(Fibonacci(i));
-// }
+for (int i = 1; i < 40; i++)
+{
+    System.Console.WriteLine(Fibonacci(i));
+}
 
 // *********************************

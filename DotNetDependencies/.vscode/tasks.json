@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/final_project.csproj",
+                "${workspaceFolder}/DotNetDependencies.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/final_project.csproj",
+                "${workspaceFolder}/DotNetDependencies.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/final_project.csproj"
+                "${workspaceFolder}/DotNetDependencies.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
