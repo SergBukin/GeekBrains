@@ -11,3 +11,4 @@ for(int i = 0; i < b; i++)
     result = result * a;
  }
 System.Console.WriteLine(result);
+System.Console.WriteLine(Math.Pow(a, b));

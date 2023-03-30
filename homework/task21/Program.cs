@@ -9,7 +9,7 @@ int z1 = int.Parse(Console.ReadLine());
 
 int[] p1 = new int[] {x1, y1, z1};
 
-System.Console.WriteLine("Введите координаты первой точки: ");
+System.Console.WriteLine("Введите координаты второй точки: ");
 int x2 = int.Parse(Console.ReadLine());
 int y2 = int.Parse(Console.ReadLine());
 int z2 = int.Parse(Console.ReadLine());
