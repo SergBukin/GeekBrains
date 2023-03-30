@@ -7,11 +7,6 @@
 10 09 08 07
 */
 
-// using System;
-
-// class Program {
-//   public static void Main (string[] args) {
-
 Console.WriteLine($"Введите размер матрицы: ");
     int arraySize = int.Parse(Console.ReadLine());
     int[,] digits = GetArray(arraySize);

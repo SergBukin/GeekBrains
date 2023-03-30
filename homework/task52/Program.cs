@@ -38,20 +38,20 @@ void PrintArray(double[,] array)
 }
 
 
-double[] GetAverageOfColumns(double[,] matrix) // * cреднеарифметическое столбцов в двумерном массиве
-{
-    double[] columns = new double[matrix.GetLength(1)];
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            columns[j] += matrix[i, j];
-        }
-        columns[j] /= matrix.GetLength(0);
-    }
+// double[] GetAverageOfColumns(double[,] matrix) // * cреднеарифметическое столбцов в двумерном массиве
+// {
+//     double[] columns = new double[matrix.GetLength(1)];
+//     for (int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//         for (int i = 0; i < matrix.GetLength(0); i++)
+//         {
+//             columns[j] += matrix[i, j];
+//         }
+//         columns[j] /= matrix.GetLength(0);
+//     }
 
-    return columns;
-}
+//     return columns;
+// }
 
 void PrintAverageOfColumns(double[] matrix)
 {
@@ -61,12 +61,28 @@ void PrintAverageOfColumns(double[] matrix)
     }
 }
 
+
+double[] GetAverageOfRows(double[,] origin) // * cреднеарифметическое строк в двумерном массиве
+{
+    double[] result = new double[origin.GetLength(0)];
+    for (int i = 0; i < origin.GetLength(0); i++)
+    {
+        for (int j = 0; j < origin.GetLength(1); j++)
+        {
+            result[i] += origin[i, j];
+        }
+        result[i] /= origin.GetLength(1);
+    }
+
+    return result;
+}
+
 System.Console.WriteLine();
 PrintArray(FillArray(n, m));
 
 System.Console.WriteLine();
 System.Console.Write("Среднее арифметическое каждого столбца: ");
-PrintAverageOfColumns(GetAverageOfColumns(array));
+PrintAverageOfColumns(GetAverageOfRows(array));
 
 
 
@@ -76,17 +92,4 @@ PrintAverageOfColumns(GetAverageOfColumns(array));
 
 
 
-// double[] GetAverageOfRows(double[,] origin) // * cреднеарифметическое строк в двумерном массиве
-// {
-//     double[] result = new double[origin.GetLength(0)];
-//     for (int i = 0; i < origin.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < origin.GetLength(1); j++)
-//         {
-//             result[i] += origin[i, j];
-//         }
-//         result[i] /= origin.GetLength(0);
-//     }
 
-//     return result;
-// }
