@@ -11,7 +11,10 @@ if(day <= 5)
   {
   System.Console.WriteLine("нет");
   }
-  else
+  else if(day == 6 || day==7) {
+     System.Console.WriteLine("да");
+  }
+else
   {
-  System.Console.WriteLine("да");
+  System.Console.WriteLine("введите корректный день недели");
   }

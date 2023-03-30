@@ -3,13 +3,11 @@
 // a = 2 b = 10 -> max = 10
 // a = -9 b = -3 -> max = -3
 // ****************************************************
-System.Console.WriteLine("Введите 2 числа");
+System.Console.WriteLine("Введите числа A и B");
 int numberA = int.Parse(Console.ReadLine());
 int numberB = int.Parse(Console.ReadLine());
-
-int max = 0;
-int min = 0;
-
+int max;
+int min;
 if (numberA > numberB)
 {
     max = numberA;
@@ -20,4 +18,4 @@ else
     max = numberB;
     min = numberA;
 }
-System.Console.WriteLine("min:" + min + ", max:" + max);
+Console.WriteLine("min:" + min + ", max:" + max);
