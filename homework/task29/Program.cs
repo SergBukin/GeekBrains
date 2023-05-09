@@ -4,30 +4,30 @@
 
 int[] CreateArray(int size, int min, int max)
 {
-	int[] array = new int[size];
-	Random rnd = new Random();
+    int[] array = new int[size];
+    Random rnd = new Random();
 
-	for (int i = 0; i < size; i++)
-	{
-		array[i] = rnd.Next(min, max);
-	}
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = rnd.Next(min, max);
+    }
 
-	return array;
+    return array;
 }
 
 string ArrayToString(int[] array)
 {
-	string result = "[";
+    string result = "[";
 
-	foreach (int item in array)
-	{
-		result += $"{item}, ";
-	}
+    foreach (int item in array)
+    {
+        result += $"{item}, ";
+    }
 
-	result.Trim(',');
-	result += "]";
+    result.Trim(',');
+    result += "]";
 
-	return result;
+    return result;
 }
 
 int[] array = CreateArray(8, -10, 10);

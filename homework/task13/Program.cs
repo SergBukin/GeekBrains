@@ -9,7 +9,6 @@
 
 System.Console.WriteLine("Введите число ");
 int number = int.Parse(Console.ReadLine());
-
 if (number < 100)
 {
     System.Console.WriteLine("третьей цифры нет");
@@ -17,28 +16,24 @@ if (number < 100)
 else
 {
     int coef = 10;
-
     if (number > 999)
     {
         while (true)
         {
             int sep = number / coef;
-
-             if (sep > 100 && sep < 1000)
+            if (sep > 100 && sep < 1000)
             {
-               break;
+                break;
             }
             else
             {
-              coef *= 10;
+                coef *= 10;
             }
         }
         System.Console.WriteLine($"Третья цифра {(number / coef) % 10}");
     }
-    
     else
     {
-      System.Console.WriteLine($"Третья цифра {number % 10}");
+        System.Console.WriteLine($"Третья цифра {number % 10}");
     }
-    
 }

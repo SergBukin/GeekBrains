@@ -6,14 +6,13 @@
 // **************************************************
 System.Console.WriteLine("Введите число");
 int number = int.Parse(Console.ReadLine());
-
 if (number % 2 == 0) 
 {
-   System.Console.WriteLine("Число четное");
+   System.Console.WriteLine(number + " - число четное");
 }
 else 
 {
-    System.Console.WriteLine("Число нечетное");
+    System.Console.WriteLine(number + " - число нечетное");
 }
 
 

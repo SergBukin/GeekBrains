@@ -4,15 +4,13 @@
 // 22 3 9 -> 22
 // ****************************************************
 
-System.Console.WriteLine("Введите 3 числа");
+System.Console.WriteLine("Введите числа A, B и C");
 int numberA = int.Parse(Console.ReadLine());
 int numberB = int.Parse(Console.ReadLine());
 int numberC = int.Parse(Console.ReadLine());
-
 int max = numberA;
-
 if(numberB > max) max = numberB;
 if(numberC > max) max = numberC;
 
-Console.Write("max = ");
-Console.Write(max);
+Console.Write("max = " + max);
+// Console.Write(max);
